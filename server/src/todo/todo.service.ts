@@ -40,4 +40,22 @@ export class TodoService {
     this.todos.push(todo);
     return toPromise(toTodoDto(todo));
   }
+
+  async updateTodo(todoDto: TodoDto): Promise<TodoDto> {
+    const { id, name, description } = todoDto;
+
+    const updatedTodo: TodoEntity = {
+      id,
+      name,
+      description,
+    };
+
+    this.todos.forEach((todo, index) => {
+      if (todo.id === id) {
+        this.todos[index] = updatedTodo;
+      }
+    });
+
+    return toPromise(toTodoDto(updatedTodo));
+  }
 }
