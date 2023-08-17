@@ -1,7 +1,7 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { TodoEntity } from './entity/todo.entity';
 import { TodoDto } from './dto/todo.dto';
-import { todos } from 'src/mock/todos.mock';
+import { todos } from '../mock/todos.mock';
 import { toPromise } from '@shared/utils';
 import { toTodoDto } from '@shared/mapper';
 import { TodoCreateDto } from './dto/todo.create.dto';
@@ -29,7 +29,7 @@ export class TodoService {
   }
 
   async createTodo(todoDto: TodoCreateDto): Promise<TodoDto> {
-    const { name, description } = todoDto;
+    const {name, description} = todoDto;
 
     const todo: TodoEntity = {
       id: uuid(),
@@ -42,7 +42,7 @@ export class TodoService {
   }
 
   async updateTodo(todoDto: TodoDto): Promise<TodoDto> {
-    const { id, name, description } = todoDto;
+    const {id, name, description} = todoDto;
 
     const updatedTodo: TodoEntity = {
       id,

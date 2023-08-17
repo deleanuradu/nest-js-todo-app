@@ -5,7 +5,7 @@
   "port": 5445,
   "username": "todo",
   "password": "password123",
-  "database": "todo",
+  "database": "todo_db",
   "synchronize": false,
   "logging": true,
   "entities": [
